@@ -1,0 +1,12 @@
+.input-section{
+    text-align: center;
+}
+
+.input-fields{
+    display: flex;
+    justify-content: center;
+}
+
+.submit-button{
+    margin: 10px;
+}

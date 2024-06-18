@@ -1,0 +1,23 @@
+<section class="input-section">
+    <h2>Show Country Details</h2>
+    <form class="input-fields">
+        <div>
+            <mat-form-field>
+                <mat-label>Select Country</mat-label>
+                <mat-select [(ngModel)] = "selectedCountry" name="country" (selectionChange)="reset()">
+                    <mat-option *ngFor="let c of allCountryList$ | async" [value]="c.cca2">{{c.name.common}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-error *ngIf="selectError">Please select a Country</mat-error>
+        </div>
+
+        <div>
+            <button class="submit-button" mat-raised-button (click)="getCountryDetails()">Submit</button>
+        </div>
+    </form>
+</section>
+
+<section  *ngIf="countryDetails$.length > 0">
+    <app-country-details [countryDetails]="countryDetails$"></app-country-details>
+</section>
